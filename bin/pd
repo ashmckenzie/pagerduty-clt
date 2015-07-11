@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.setup
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'logger'
+require 'pagerduty'
+require 'pagerduty/clt'
+
+$config = Pagerduty::CLT::Config.new
+$connection = Pagerduty::CLT::Connection.new($config.settings.account.name, $config.settings.account.token)
+$logger = Logger.new(STDOUT)
+
+logger_level = if ENV['QUIET'] == 'true'
+  Logger::ERROR
+elsif ENV['DEBUG'] == 'true'
+  require 'pry-byebug'
+  Logger::DEBUG
+else
+  Logger::INFO
+end
+
+$logger.level = logger_level
+
+Pagerduty::CLT::CLI::MainCommand.run

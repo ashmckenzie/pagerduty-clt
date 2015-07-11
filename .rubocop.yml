@@ -1,0 +1,31 @@
+Style/SpaceInsideBrackets:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/IndentationConsistency:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+  AllowInnerSlashes: false
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 150
+
+Style/SpaceAroundEqualsInParameterDefault:
+  Enabled: false
