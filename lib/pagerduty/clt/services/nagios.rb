@@ -19,7 +19,17 @@ module Pagerduty
         end
 
         def detail
-          @detail || raw.details.SERVICEOUTPUT.gsub('br /', "\n")
+          @detail || begin
+            details = if raw.details.SERVICEOUTPUT
+              raw.details.SERVICEOUTPUT
+            elsif raw.details.HOSTOUTPUT
+              raw.details.HOSTOUTPUT
+            else
+              ''
+            end
+
+            details.gsub('br /', "\n")
+          end
         end
       end
     end
