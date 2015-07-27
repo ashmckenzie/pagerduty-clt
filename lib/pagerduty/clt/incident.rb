@@ -49,6 +49,15 @@ module Pagerduty
         @status ||= raw.status
       end
 
+      def status_short
+        @status_short ||= begin
+          case raw.status
+          when 'acknowledged' then 'A'
+          when 'resolved' then 'R'
+          end
+        end
+      end
+
       def user
         @user ||= raw.assigned_to_user ? User.new(raw.assigned_to_user) : NullUser.new
       end
