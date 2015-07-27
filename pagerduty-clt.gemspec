@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'tzinfo-data'
   spec.add_runtime_dependency 'highline'
   spec.add_runtime_dependency 'naught'
-  spec.add_runtime_dependency 'terminal-table'
+  spec.add_runtime_dependency 'ruby-terminfo'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
