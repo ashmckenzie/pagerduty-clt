@@ -19,6 +19,8 @@ require 'pagerduty/clt/incidents'
 require 'pagerduty/clt/incident_list'
 require 'pagerduty/clt/escalation_policy'
 require 'pagerduty/clt/escalation_policies'
+require 'pagerduty/clt/schedule'
+require 'pagerduty/clt/schedules'
 require 'pagerduty/clt/cli'
 
 module Pagerduty
