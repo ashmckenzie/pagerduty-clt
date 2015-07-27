@@ -34,9 +34,9 @@ module Pagerduty
           ack_options = { confirm: !yes? }
 
           if batch?
-            Pagerduty::CLT::Incidents.new.where(options).acknowledge_all!(ack_options)
+            Incidents.new.where(options).acknowledge_all!(ack_options)
           else
-            Pagerduty::CLT::Incidents.new.where(options).acknowledge!
+            Incidents.new.where(options).acknowledge!
           end
         end
       end
@@ -54,9 +54,9 @@ module Pagerduty
           resolve_options = { confirm: !yes? }
 
           if batch?
-            Pagerduty::CLT::Incidents.new.where(options).resolve_all!(resolve_options)
+            Incidents.new.where(options).resolve_all!(resolve_options)
           else
-            Pagerduty::CLT::Incidents.new.where(options).resolve!
+            Incidents.new.where(options).resolve!
           end
         end
       end
@@ -70,7 +70,7 @@ module Pagerduty
           options = { status: status }
           options[:user_id] = nil if everyone?
 
-          incidents = Pagerduty::CLT::Incidents.new.where(options)
+          incidents = Incidents.new.where(options)
           table = Formatters::Incidents::Table.new(incidents).render
           puts table if table
         end
@@ -82,7 +82,7 @@ module Pagerduty
         def execute
           options = { query: query }
 
-          escalation_policies = Pagerduty::CLT::EscalationPolicies.new.where(options)
+          escalation_policies = EscalationPolicies.new.where(options)
           table = Formatters::OnCall::Table.new(escalation_policies).render
           puts table if table
         end

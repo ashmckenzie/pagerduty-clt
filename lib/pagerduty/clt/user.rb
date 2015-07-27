@@ -20,7 +20,7 @@ module Pagerduty
 
       def preferred_time_zone
         @preferred_time_zone ||= TZInfo::Timezone.get(time_zone)
-        end
+      end
 
       private
 

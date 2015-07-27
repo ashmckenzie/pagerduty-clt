@@ -29,7 +29,7 @@ module Pagerduty
             def rows
               escalation_policies.map do |escalation_policy|
                 {
-                  name:  escalation_policy.name,
+                  name:   escalation_policy.name,
                   person: escalation_policy.user_name
                 }
               end
