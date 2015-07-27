@@ -48,7 +48,7 @@ module Pagerduty
       config.mimic User
 
       def name
-        'N/A'
+        ''
       end
     end
   end
