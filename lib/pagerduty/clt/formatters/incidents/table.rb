@@ -4,46 +4,47 @@ module Pagerduty
       module Incidents
         class Table
 
+          include Formatters::Helper
+
           def initialize(incidents)
             @incidents = incidents
-            @prepared_rows = {}
           end
 
           def render
             return nil if incidents.empty?
-            puts Terminal::Table.new(headings: headings, rows: rows)
+            puts TerminalTable.new(headings: columns, rows: rows, max_width: terminal_width).render
           end
 
           private
 
-            attr_accessor :prepared_rows
             attr_reader :incidents
 
-            def headings
-              [
-                '#',
-                'Node',
-                'Service',
-                'Detail',
-                'Assigned To',
-                'Status',
-                'Created'
-              ]
+            def columns
+              {
+                id:       { label: '#', max_width: 7 },
+                node:     { label: 'Node', max_width: 26 },
+                service:  { label: 'Service', max_width: -1 },
+                detail:   { label: 'Detail', max_width: -1 },
+                assignee: { label: 'Assignee', max_width: 16 },
+                status:   { label: 'X', max_width: 1 },
+                created:  { label: 'Created', max_width: 19 }
+              }
             end
 
             def rows
               incidents.map do |incident|
-                [
-                  incident.id,
-                  incident.node.name,
-                  incident.service.name,
-                  incident.service.detail,
-                  incident.user.name,
-                  incident.status,
-                  incident.created_at
-                ]
+                {
+                  id:       incident.id,
+                  node:     incident.node.name,
+                  service:  incident.service.name,
+                  detail:   incident.service.detail,
+                  assignee: incident.user.name,
+                  status:   incident.status_short,
+                  created:  incident.created_at
+                }
               end
             end
+
         end
       end
     end
