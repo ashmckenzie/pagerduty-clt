@@ -8,6 +8,7 @@ Add this line to your application's Gemfile:
 cd /tmp
 git clone https://github.com/ashmckenzie/pagerduty-clt.git
 cd pagerduty-clt
+bundle install
 bundle exec rake install
 ```
 
@@ -38,6 +39,7 @@ Parameters:
 
 Subcommands:
     o, oncall                     Who is currently on call
+    s, schedules                  Schedules
     l, list                       List incidents needing attention (triggered + acknowledged)
     a, ack, acknowledge           Acknowledge incidents
     r, resolve                    Resolve incidents
