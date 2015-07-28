@@ -52,8 +52,10 @@ Options:
 
 ## TODO
 
-* Support more types of incident data types
 * Specs
+* Support more incident data types
+* Improve the way incident matching works
+* Extract out TerminalTable
 
 ## Contributing
 
