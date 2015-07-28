@@ -52,8 +52,9 @@ module Pagerduty
       def status_short
         @status_short ||= begin
           case raw.status
-          when 'acknowledged' then 'A'
-          when 'resolved' then 'R'
+          when Status::ACKNOWLEDGED then 'A'
+          when Status::RESOLVED     then 'R'
+          when Status::TRIGGERED    then 'T'
           end
         end
       end
