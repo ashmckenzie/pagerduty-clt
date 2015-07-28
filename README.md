@@ -2,7 +2,7 @@
 
 ## Installation
 
-Add this line to your application's Gemfile:
+There is no gem as yet so for now:
 
 ```shell
 cd /tmp
@@ -53,6 +53,7 @@ Options:
 ## TODO
 
 * Specs
+* Upload to rubygems.org
 * Support more incident data types
 * Improve the way incident matching works
 * Extract out TerminalTable
