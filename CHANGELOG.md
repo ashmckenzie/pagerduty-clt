@@ -1,3 +1,9 @@
+## v0.2.2 / 2015-07-28
+
+* Ack/Resolve --batch options is now --interactive and false (operates on all incidents by default)
+* Display 'T' for triggered incidents
+* Misc tidy up
+
 ## v0.2.1 / 2015-07-28
 
 * Shortened incident service in table view
