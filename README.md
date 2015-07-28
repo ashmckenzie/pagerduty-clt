@@ -50,49 +50,6 @@ Options:
     --version                     show version
 ```
 
-### list
-
-```shell
-$ pd list --help
-Usage:
-    pd list [OPTIONS]
-
-Options:
-    --everyone                    All incidents, not just mine (default: false)
-```
-
-### ack
-
-```shell
-$ pd ack --help
-Usage:
-    pd ack [OPTIONS] PATTERN
-
-Parameters:
-    PATTERN                       pattern to match (on node)
-
-Options:
-    --everyone                    ALL incidents, not just mine (default: false)
-    --batch                       Non-interactively acknowledge (default: false)
-    --yes                         Don't confirm, just do it! (default: false)
-```
-
-### resolve
-
-```shell
-$ pd resolve --help
-Usage:
-    pd resolve [OPTIONS] PATTERN
-
-Parameters:
-    PATTERN                       pattern to match (on node)
-
-Options:
-    --everyone                    All incidents, not just mine (default: false)
-    --batch                       Non-interactively acknowledge (default: false)
-    --yes                         Don't confirm, just do it! (default: false)
-```
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/ashmckenzie/pagerduty-clt. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
