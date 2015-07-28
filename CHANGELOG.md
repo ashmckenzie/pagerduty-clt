@@ -1,3 +1,7 @@
+## v0.2.1 / 2015-07-28
+
+* Shortened incident service in table view
+
 ## v0.2.0 / 2015-07-28
 
 * Schedules are back!
