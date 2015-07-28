@@ -23,7 +23,7 @@ module Pagerduty
               {
                 id:       { label: '#', max_width: 7 },
                 node:     { label: 'Node', max_width: 26 },
-                service:  { label: 'Service', max_width: -1 },
+                service:  { label: 'Service', max_width: 22 },
                 detail:   { label: 'Detail', max_width: -1 },
                 assignee: { label: 'Assignee', max_width: 16 },
                 status:   { label: 'X', max_width: 1 },
