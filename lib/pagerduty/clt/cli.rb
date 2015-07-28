@@ -23,8 +23,8 @@ module Pagerduty
 
       class AcknowledgeCommand < AbstractCommand
         parameter('PATTERN', 'pattern to match (on node)', required: false)
+        option('--interactive', :flag, 'Interactively acknowledge', default: false)
         option('--everyone', :flag, 'ALL incidents, not just mine', default: false)
-        option('--batch', :flag, 'Non-interactively acknowledge', default: false)
         option('--yes', :flag, "Don't confirm, just do it!", default: false)
 
         def execute
@@ -33,18 +33,18 @@ module Pagerduty
           options[:user_id] = nil if everyone?
           ack_options = { confirm: !yes? }
 
-          if batch?
-            Incidents.new.where(options).acknowledge_all!(ack_options)
-          else
+          if interactive?
             Incidents.new.where(options).acknowledge!
+          else
+            Incidents.new.where(options).acknowledge_all!(ack_options)
           end
         end
       end
 
       class ResolveCommand < AbstractCommand
         parameter('PATTERN', 'pattern to match (on node)', required: false)
+        option('--interactive', :flag, 'Interactively acknowledge', default: false)
         option('--everyone', :flag, 'All incidents, not just mine', default: false)
-        option('--batch', :flag, 'Non-interactively acknowledge', default: false)
         option('--yes', :flag, "Don't confirm, just do it!", default: false)
 
         def execute
@@ -53,10 +53,10 @@ module Pagerduty
           options[:user_id] = nil if everyone?
           resolve_options = { confirm: !yes? }
 
-          if batch?
-            Incidents.new.where(options).resolve_all!(resolve_options)
-          else
+          if interactive?
             Incidents.new.where(options).resolve!
+          else
+            Incidents.new.where(options).resolve_all!(resolve_options)
           end
         end
       end
