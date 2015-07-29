@@ -71,7 +71,7 @@ module Pagerduty
 
         $logger.debug 'Attempting to resolve all incidents'
         puts Formatters::Incidents::Table.new(incident_list).render
-        return unless prompt('%s matches, are you sure?' % incidents.count).match(/y(es)?/i) if confirm
+        return unless prompt('%s match(es), are you sure?' % incidents.count).match(/y(es)?/i) if confirm
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
@@ -94,7 +94,7 @@ module Pagerduty
 
         $logger.debug 'Acknowledging all incidents'
         puts Formatters::Incidents::Table.new(incident_list).render
-        return unless prompt('%s matches, are you sure?' % incidents.count).match(/y(es)?/i) if confirm
+        return unless prompt('%s match(e)s, are you sure?' % incidents.count).match(/y(es)?/i) if confirm
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
