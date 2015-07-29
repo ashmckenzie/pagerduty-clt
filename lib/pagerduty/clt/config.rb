@@ -18,10 +18,7 @@ module Pagerduty
       end
 
       def me
-        @me ||= begin
-          path = users_path(settings.user_id)
-          User.new($connection.get(path).user)
-        end
+        @me ||= User.find(settings.user_id)
       end
 
       private
