@@ -1,3 +1,11 @@
+## v0.3.0 / 2015-07-29
+
+* Reassigning incidents is now possible
+* Display a total list of incidents when listing
+* Console command makes a return!
+* New Formatters::Users::Table
+* Lots of formatting fixes
+
 ## v0.2.2 / 2015-07-28
 
 * Ack/Resolve --batch options is now --interactive and false (operates on all incidents by default)
