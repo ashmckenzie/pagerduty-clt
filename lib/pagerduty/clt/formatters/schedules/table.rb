@@ -10,7 +10,7 @@ module Pagerduty
 
           def render
             return nil if schedules.empty?
-            puts TerminalTable.new(headings: columns, rows: rows, max_width: 140).render
+            TerminalTable.new(headings: columns, rows: rows, max_width: 140).render
           end
 
           private

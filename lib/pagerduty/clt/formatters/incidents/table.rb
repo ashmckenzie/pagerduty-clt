@@ -12,7 +12,7 @@ module Pagerduty
 
           def render
             return nil if incidents.empty?
-            puts TerminalTable.new(headings: columns, rows: rows, max_width: terminal_width).render
+            TerminalTable.new(headings: columns, rows: rows, max_width: terminal_width).render
           end
 
           private

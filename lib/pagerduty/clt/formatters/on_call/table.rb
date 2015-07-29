@@ -12,7 +12,7 @@ module Pagerduty
 
           def render
             return nil if escalation_policies.empty?
-            puts TerminalTable.new(headings: columns, rows: rows, max_width: 80).render
+            TerminalTable.new(headings: columns, rows: rows, max_width: 80).render
           end
 
           private
