@@ -148,6 +148,12 @@ module Pagerduty
         $connection.put(path + '?requester_id=%s' % settings.user_id)
       end
 
+      def reassign!(user)
+        $logger.debug "Reassigning incident #{inspect_short} to #{user.name}"
+        path = incident_reassign_path(id)
+        $connection.put(path + '?requester_id=%s&assigned_to_user=%s' % [ settings.user_id, user.id ])
+      end
+
       private
 
         attr_accessor :fetched

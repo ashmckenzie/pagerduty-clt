@@ -38,6 +38,10 @@ module Pagerduty
         '%s/%s' % [ incidents_path, id ]
       end
 
+      def incident_reassign_path(id)
+        '%s/%s/reassign' % [ incidents_path, id ]
+      end
+
       def incident_acknowledge_path(id)
         '%s/%s/acknowledge' % [ incidents_path, id ]
       end

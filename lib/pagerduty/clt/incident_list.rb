@@ -110,6 +110,20 @@ module Pagerduty
         end
       end
 
+      def reassign_all!(user, confirm: true)
+        if incident_list.empty?
+          $logger.warn 'No incidents to reassign'
+          return true
+        end
+
+        $logger.debug "Reassigning all incidents to '%s'" % user.name
+        puts Formatters::Incidents::Table.new(incident_list).render
+        return unless prompt("\n%s match(e)s, are you sure?" % incident_list.count).match(/y(es)?/i) if confirm
+
+        each_with_index { |incident, i| incident.reassign!(user) }
+        $stderr.puts("\n%s match(e)s reassigned to '%s'" % [ incident_list.count, user.name ]) unless confirm
+      end
+
       private
 
         attr_reader :raw_incident_list

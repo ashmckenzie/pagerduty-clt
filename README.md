@@ -43,6 +43,7 @@ Subcommands:
     l, list                       List incidents needing attention (triggered + acknowledged)
     a, ack, acknowledge           Acknowledge incidents
     r, resolve                    Resolve incidents
+    ra, reassign                  Reassign incidents
 
 Options:
     -h, --help                    print help
