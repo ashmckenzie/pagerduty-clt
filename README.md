@@ -1,4 +1,15 @@
-# Pagerduty CLT
+# Pagerduty command line tool (CLT)
+
+pagerduty-ctl is a command line tool that supports the following Pagerduty operations:
+
+* Listing incidents, schedules and who is oncall
+* Acknowledge incidents
+* Resolve incidents
+* Reassign incidents
+* Supports incident filtering
+* Batch mode by default, specify `--interactive` to one-by-one
+* YES mode (just do it, don't prompt)
+* Console mode (pry session)
 
 ## Installation
 
@@ -38,8 +49,8 @@ Parameters:
     [ARG] ...                     subcommand arguments
 
 Subcommands:
-    o, oncall                     Who is currently on call
     s, schedules                  Schedules
+    o, oncall                     Who is currently on call
     l, list                       List incidents needing attention (triggered + acknowledged)
     a, ack, acknowledge           Acknowledge incidents
     r, resolve                    Resolve incidents

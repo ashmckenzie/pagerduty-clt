@@ -138,8 +138,8 @@ module Pagerduty
 
       class MainCommand < AbstractCommand
         subcommand %w(c console), 'Run a console', ConsoleCommand
-        subcommand %w(o oncall), 'Who is currently on call', OncallCommand
         subcommand %w(s schedules), 'Schedules', SchedulesCommand
+        subcommand %w(o oncall), 'Who is currently on call', OncallCommand
         subcommand %w(l list), 'List incidents needing attention (triggered + acknowledged)', ListNeedingAttentionCommand
         subcommand %w(a ack acknowledge), 'Acknowledge incidents', AcknowledgeCommand
         subcommand %w(r resolve), 'Resolve incidents', ResolveCommand
