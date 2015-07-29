@@ -21,3 +21,7 @@
 ## v0.1.1 / 2015-07-21
 
 * Misc tidy up
+
+## v0.0.0 / 2015-07-10
+
+* Initial commit!
