@@ -4,7 +4,7 @@ require 'hashie'
 module Pagerduty
   module CLT
     class Config
-      include PathHelper   # FIXME
+      include PathHelper
 
       DEFAULT_CONFIG_FILE = File.join(ENV['HOME'], '.pagerduty_env')
 

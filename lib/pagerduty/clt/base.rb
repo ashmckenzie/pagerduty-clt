@@ -1,7 +1,6 @@
 module Pagerduty
   module CLT
     module Base
-      DEFAULT_STATUS  = Status::ALL
 
       def settings
         @settings ||= $config.settings

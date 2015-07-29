@@ -4,13 +4,13 @@ module Pagerduty
 
       include Base
       include Status
-      include PathHelper   # FIXME
+      include PathHelper
 
       def all
         where
       end
 
-      def where(status: DEFAULT_STATUS, pattern: nil, fields: false, user_id: false, sort_by: 'created_on:desc')
+      def where(status: Status::UNRESOLVED, pattern: nil, fields: false, user_id: false, sort_by: 'created_on:desc')
         user_id = (user_id == false) ? settings.user_id : user_id
         incidents = get(status, pattern, fields, user_id, sort_by)
         incident_list = IncidentList.new(incidents)

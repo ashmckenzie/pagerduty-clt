@@ -28,8 +28,7 @@ module Pagerduty
         option('--yes', :flag, "Don't confirm, just do it!", default: false)
 
         def execute
-          status = [ Status::TRIGGERED ]
-          options = { status: status, pattern: pattern }
+          options = { status: [ Status::TRIGGERED ], pattern: pattern }
           options[:user_id] = nil if everyone?
           ack_options = { confirm: !yes? }
 
@@ -48,8 +47,7 @@ module Pagerduty
         option('--yes', :flag, "Don't confirm, just do it!", default: false)
 
         def execute
-          status = [ Status::TRIGGERED, Status::ACKNOWLEDGED ]
-          options = { status: status, pattern: pattern }
+          options = { status: Status::UNRESOLVED, pattern: pattern }
           options[:user_id] = nil if everyone?
           resolve_options = { confirm: !yes? }
 
@@ -65,9 +63,7 @@ module Pagerduty
         option('--everyone', :flag, 'All incidents, not just mine', default: false)
 
         def execute
-          status = [ Status::TRIGGERED, Status::ACKNOWLEDGED ]
-
-          options = { status: status }
+          options = { status: Status::UNRESOLVED }
           options[:user_id] = nil if everyone?
 
           incidents = Incidents.new.where(options)

@@ -6,8 +6,8 @@ module Pagerduty
 
       include Base
       include Status
-      include PathHelper  # FIXME
-      extend PathHelper   # FIXME
+      include PathHelper
+      extend PathHelper
 
       attr_reader :raw
 

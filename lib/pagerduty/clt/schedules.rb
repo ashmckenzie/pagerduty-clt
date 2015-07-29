@@ -3,7 +3,7 @@ module Pagerduty
     class Schedules
 
       include Base
-      include PathHelper   # FIXME
+      include PathHelper
 
       def all
         where

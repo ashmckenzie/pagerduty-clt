@@ -2,8 +2,8 @@ module Pagerduty
   module CLT
     class Schedule
 
-      include PathHelper  # FIXME
-      extend PathHelper   # FIXME
+      include PathHelper
+      extend PathHelper
 
       def initialize(raw)
         @raw = raw
