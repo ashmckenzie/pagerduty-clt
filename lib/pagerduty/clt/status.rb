@@ -4,8 +4,7 @@ module Pagerduty
       ACKNOWLEDGED = 'acknowledged'
       RESOLVED     = 'resolved'
       TRIGGERED    = 'triggered'
-
-      ALL = [ ACKNOWLEDGED, RESOLVED, TRIGGERED ]
+      UNRESOLVED   = [ TRIGGERED, ACKNOWLEDGED ]
     end
   end
 end
