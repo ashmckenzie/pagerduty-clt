@@ -56,6 +56,7 @@ Options:
 * Upload to rubygems.org
 * Support more incident data types
 * Improve the way incident matching works
+* Support `--format` (json, csv) when listing incidents
 * Extract out TerminalTable
 
 ## Contributing
