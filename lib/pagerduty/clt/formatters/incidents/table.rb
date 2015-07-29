@@ -22,10 +22,10 @@ module Pagerduty
             def columns
               {
                 id:       { label: '#', max_width: 7 },
-                node:     { label: 'Node', max_width: 26 },
+                node:     { label: 'Node', max_width: 28 },
                 service:  { label: 'Service', max_width: 22 },
                 detail:   { label: 'Detail', max_width: -1 },
-                assignee: { label: 'Assignee', max_width: 16 },
+                assignee: { label: 'Assignee', max_width: 22 },
                 status:   { label: 'X', max_width: 1 },
                 created:  { label: 'Created', max_width: 19 }
               }
