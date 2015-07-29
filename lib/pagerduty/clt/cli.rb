@@ -72,7 +72,10 @@ module Pagerduty
 
           incidents = Incidents.new.where(options)
           table = Formatters::Incidents::Table.new(incidents).render
-          puts table if table
+          if table
+            puts table
+            puts "\n%s match(es)" % incidents.count
+          end
         end
       end
 
