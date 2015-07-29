@@ -2,7 +2,11 @@ module Pagerduty
   module CLT
     module PathHelper
 
-      def users_path(id)
+      def users_path
+        'users'
+      end
+
+      def user_path(id)
         'users/%s' % [ id ]
       end
 

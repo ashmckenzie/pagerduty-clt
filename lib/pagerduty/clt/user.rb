@@ -2,8 +2,27 @@ module Pagerduty
   module CLT
     class User
 
+      include PathHelper
+      extend PathHelper
+
       def initialize(raw)
         @raw = raw
+      end
+
+      def self.find(id, fields: false)
+        path = user_path(id)
+        options = {}
+        options[:fields] = fields.join(',') if fields
+        response = $connection.get(path, options)
+        new(response)
+      end
+
+      def self.search(pattern, fields: false)
+        path = users_path
+        options = {}
+        options[:fields] = fields.join(',') if fields
+        response = $connection.get(path, options)
+        response['users'].map { |raw_user| self.new(raw_user) }.select { |user| user.match?(pattern) }
       end
 
       def id
@@ -20,6 +39,10 @@ module Pagerduty
 
       def preferred_time_zone
         @preferred_time_zone ||= TZInfo::Timezone.get(time_zone)
+      end
+
+      def match?(pattern)
+        !!(id.match(pattern) || name.match(pattern) || (email.match(pattern)))
       end
 
       private
