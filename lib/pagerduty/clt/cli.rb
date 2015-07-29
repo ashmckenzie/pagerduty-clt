@@ -14,12 +14,17 @@ module Pagerduty
         end
       end
 
-      # class ConsoleCommand < AbstractCommand
-      #   def execute
-      #     require 'pry-byebug'
-      #     pry PD
-      #   end
-      # end
+      class ConsoleCommand < AbstractCommand
+        def execute
+          begin
+            require 'pry-byebug'
+          rescue LoadError
+            $logger.error 'pry-byebug not installed.'
+            exit(1)
+          end
+          pry ::Pagerduty::CLT
+        end
+      end
 
       class AcknowledgeCommand < AbstractCommand
         parameter('PATTERN', 'pattern to match (on node)', required: false)
@@ -100,7 +105,7 @@ module Pagerduty
       end
 
       class MainCommand < AbstractCommand
-        # subcommand %w(c console), 'Run a console', ConsoleCommand
+        subcommand %w(c console), 'Run a console', ConsoleCommand
         subcommand %w(o oncall), 'Who is currently on call', OncallCommand
         subcommand %w(s schedules), 'Schedules', SchedulesCommand
         subcommand %w(l list), 'List incidents needing attention (triggered + acknowledged)', ListNeedingAttentionCommand
