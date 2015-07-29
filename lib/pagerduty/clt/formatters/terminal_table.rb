@@ -10,8 +10,7 @@ module Pagerduty
         end
 
         def render
-          table = [ header, formatted_rows, divider ]
-          puts table.join("\n")
+          [ header, formatted_rows, divider ].join("\n")
         end
 
         private
