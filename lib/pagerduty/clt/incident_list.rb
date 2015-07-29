@@ -9,6 +9,10 @@ module Pagerduty
         @raw_incident_list = raw_incident_list
       end
 
+      def count
+        incident_list.count
+      end
+
       def incident_list
         @incident_list ||= begin
           jobs = []
