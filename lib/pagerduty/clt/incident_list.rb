@@ -75,7 +75,7 @@ module Pagerduty
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
-        $stderr.puts "\n%s match(e)s resolved" % incidents.count unless confirm
+        $stderr.puts("\n%s match(e)s resolved" % incidents.count)unless confirm
       end
 
       def resolve!
@@ -99,7 +99,7 @@ module Pagerduty
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
-        $stderr.puts "\n%s match(e)s acknowledged" % incidents.count unless confirm
+        $stderr.puts("\n%s match(e)s acknowledged" % incidents.count) unless confirm
       end
 
       def acknowledge!
