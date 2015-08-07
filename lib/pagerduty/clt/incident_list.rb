@@ -75,7 +75,7 @@ module Pagerduty
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
-        $stderr.puts("\n%s match(e)s resolved" % incidents.count)unless confirm
+        $stderr.puts("\n%s match(es) resolved" % incidents.count)unless confirm
       end
 
       def resolve!
@@ -95,7 +95,7 @@ module Pagerduty
 
         $logger.debug 'Acknowledging all incidents'
         puts Formatters::Incidents::Table.new(incident_list).render
-        return unless prompt("\n%s match(e)s, are you sure?" % incidents.count).match(/y(es)?/i) if confirm
+        return unless prompt("\n%s match(es), are you sure?" % incidents.count).match(/y(es)?/i) if confirm
 
         options = { incidents: incidents, requester_id: settings.user_id }
         $connection.put(incidents_path, options.to_json)
