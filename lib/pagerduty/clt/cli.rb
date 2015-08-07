@@ -98,16 +98,30 @@ module Pagerduty
 
       class ListNeedingAttentionCommand < AbstractCommand
         option('--everyone', :flag, 'All incidents, not just mine', default: false)
+        option([ '-f', '--format' ], 'FORMAT', 'Format', default: 'table')
 
         def execute
           options = { status: Status::UNRESOLVED }
           options[:user_id] = nil if everyone?
 
           incidents = Incidents.new.where(options)
-          table = Formatters::Incidents::Table.new(incidents).render
-          if table
-            puts table
-            puts "\n%s match(es)" % incidents.count
+
+          formater_klass = case format
+          when 'table'
+            Formatters::Incidents::Table
+          when 'csv'
+            Formatters::Incidents::CSV
+          when 'json'
+            Formatters::Incidents::JSON
+          else
+            fail("Unknown format type '#{format}'")
+          end
+
+          output = formater_klass.new(incidents).render
+
+          if output
+            puts output
+            puts "\n%s match(es)" % incidents.count if format == 'table'
           end
         end
       end
