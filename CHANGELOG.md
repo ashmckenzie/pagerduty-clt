@@ -1,3 +1,7 @@
+## v0.4.0 / 2015-08-07
+
+* New CSV and JSON formatters for Incidents
+
 ## v0.3.0 / 2015-07-29
 
 * Reassigning incidents is now possible

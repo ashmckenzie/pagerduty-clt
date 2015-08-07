@@ -3,6 +3,7 @@
 pagerduty-ctl is a command line tool that supports the following Pagerduty operations:
 
 * Listing incidents, schedules and who is oncall
+* Formatting options for Incidents - Table, CSV and JSON
 * Acknowledge incidents
 * Resolve incidents
 * Reassign incidents
