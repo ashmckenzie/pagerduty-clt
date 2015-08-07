@@ -127,7 +127,7 @@ module Pagerduty
       end
 
       class SchedulesCommand < AbstractCommand
-        option [ '-q', '--query' ], 'QUERY', 'Query'
+        option([ '-q', '--query' ], 'QUERY', 'Query')
 
         def execute
           options = { query: query }
@@ -139,7 +139,7 @@ module Pagerduty
       end
 
       class OncallCommand < AbstractCommand
-        option [ '-q', '--query' ], 'QUERY', 'Query'
+        option([ '-q', '--query' ], 'QUERY', 'Query')
 
         def execute
           options = { query: query }
