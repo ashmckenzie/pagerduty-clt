@@ -34,9 +34,17 @@ PAGERDUTY_ACCOUNT_TOKEN="<FILL_ME_IN>"
 PAGERDUTY_USER_ID="<FILL_ME_IN>"
 ```
 
-* `PAGERDUTY_ACCOUNT_NAME` - the subdomain in `https://<account>.pagerduty.com`
+* `PAGERDUTY_ACCOUNT_NAME` - just the subdomain from `https://<account>.pagerduty.com`
 * `PAGERDUTY_ACCOUNT_TOKEN` - your individual API token.  Visit `https://<account>.pagerduty.com/api_keys` and create a 'Full access' / write key.
 * `PAGERDUTY_USER_ID` - needed so only incidents assigned to you are returned (unless you define the ```--everyone``` parameter).  It can be determined by clicking on your avatar in the top right hand corner and then inspecting the URL - `https://<account>.pagerduty.com/users/<user_id>`
+
+Example
+
+```
+PAGERDUTY_ACCOUNT_NAME="acme"
+PAGERDUTY_ACCOUNT_TOKEN="jisad8nasdjnJHasd"
+PAGERDUTY_USER_ID="A4FLIG"
+```
 
 ## Usage
 
