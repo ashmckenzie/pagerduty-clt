@@ -37,8 +37,9 @@ module Pagerduty
 
             builder.token_auth(token)
 
-            builder.headers[:user_agent] = 'PD-CLT/1.0'
+            builder.headers[:user_agent] ="'PD-CLT/#{CLT::VERSION}"
             builder.headers[:content_type] = 'application/json'
+            builder.headers[:accept] = 'application/vnd.pagerduty+json;version=2'
           end
         end
       end
@@ -48,7 +49,8 @@ module Pagerduty
         attr_reader :name, :token
 
         def base_url
-          @base_url ||= 'https://%s.pagerduty.com/api/v1' % name
+          # @base_url ||= 'https://%s.pagerduty.com/api/v1' % name
+          @base_url ||= 'https://api.pagerduty.com'
         end
 
         def request(method, path, args)

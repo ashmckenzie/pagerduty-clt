@@ -138,6 +138,14 @@ module Pagerduty
         end
       end
 
+      class MySchedulesCommand < AbstractCommand
+        def execute
+          schedules = MySchedules.new.where
+          table = Formatters::Schedules::Table.new(schedules).render
+          puts table if table
+        end
+      end
+
       class OncallCommand < AbstractCommand
         option([ '-q', '--query' ], 'QUERY', 'Query')
 
@@ -153,6 +161,7 @@ module Pagerduty
       class MainCommand < AbstractCommand
         subcommand %w(c console), 'Run a console', ConsoleCommand
         subcommand %w(s schedules), 'Schedules', SchedulesCommand
+        subcommand %w(ms my-schedules), 'My Schedules', MySchedulesCommand
         subcommand %w(o oncall), 'Who is currently on call', OncallCommand
         subcommand %w(l list), 'List incidents needing attention (triggered + acknowledged)', ListNeedingAttentionCommand
         subcommand %w(a ack acknowledge), 'Acknowledge incidents', AcknowledgeCommand

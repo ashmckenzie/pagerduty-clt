@@ -21,6 +21,7 @@ module Pagerduty
         @users ||= begin
           path = schedule_users_path(id)
           options = { since: Time.now.strftime('%Y-%m-%d'), until: (Time.now + 7 * 86_400).strftime('%Y-%m-%d') }
+          require 'pry-byebug' ; binding.pry
           $connection.get(path, options).users.map { |raw_user| User.new(raw_user) }
         end
       end

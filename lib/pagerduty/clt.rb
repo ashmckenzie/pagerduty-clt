@@ -21,6 +21,7 @@ require 'pagerduty/clt/escalation_policy'
 require 'pagerduty/clt/escalation_policies'
 require 'pagerduty/clt/schedule'
 require 'pagerduty/clt/schedules'
+require 'pagerduty/clt/my_schedules'
 require 'pagerduty/clt/cli'
 
 module Pagerduty

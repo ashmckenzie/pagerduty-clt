@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 module Pagerduty
   module CLT
     module Formatters

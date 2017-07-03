@@ -45,6 +45,10 @@ module Pagerduty
         !!(id.match(pattern) || name.match(pattern) || (email.match(pattern)))
       end
 
+      def my_schedules
+        @my_schedules ||= Regexp.new(ENV.fetch('PAGERDUTY_MY_SCHEDULES', '.*'))
+      end
+
       private
 
         attr_reader :raw
